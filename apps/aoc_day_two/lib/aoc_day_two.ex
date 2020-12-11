@@ -15,13 +15,14 @@ defmodule AocDayTwo do
 
   def get_answer_part_two() do
     rules_and_passwords = get_data()
+
     results =
       for [rule, pass] <- rules_and_passwords do
         process_part_two(rule, pass)
       end
 
-      valid = Enum.filter(results, &(&1))
-      length(valid)
+    valid = Enum.filter(results, & &1)
+    length(valid)
   end
 
   def process(rule, pass) do
@@ -47,7 +48,7 @@ defmodule AocDayTwo do
       letter_pos = get_letter_pos(pass)
       is_first = letter_pos[fpos] == letter
       is_second = letter_pos[spos] == letter
-      IO.inspect {letter, pass, fpos, is_first, spos, is_second}
+      IO.inspect({letter, pass, fpos, is_first, spos, is_second})
       (is_first || is_second) && !(is_first && is_second)
     end
   end
@@ -65,13 +66,15 @@ defmodule AocDayTwo do
   end
 
   def get_letter_pos(word) do
-      String.graphemes(word) |> Enum.with_index() |> into_map()
+    String.graphemes(word) |> Enum.with_index() |> into_map()
   end
 
   def into_map(list) do
-    Enum.into(for {i,j} <- list do
-      {j,i}
-    end, %{})
+    Enum.into(
+      for {i, j} <- list do
+        {j, i}
+      end,
+      %{}
+    )
   end
-
 end
