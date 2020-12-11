@@ -13,17 +13,23 @@ defmodule AocDayOne do
 
   def get_answer_part_one_another_way() do
     numbers = File.read!(@input) |> String.split("\n") |> Enum.map(&String.to_integer/1)
-    [{x,y} | _] = for i <- numbers, j <- numbers, i + j == 2020 do
-      {i,j}
-    end
+
+    [{x, y} | _] =
+      for i <- numbers, j <- numbers, i + j == 2020 do
+        {i, j}
+      end
+
     x * y
   end
 
   def get_answer_part_two() do
     numbers = File.read!(@input) |> String.split("\n") |> Enum.map(&String.to_integer/1)
-    [{x,y,z} | _] = for i <- numbers, j <- numbers, k <- numbers, i + j + k == 2020 do
-      {i,j,k}
-    end
+
+    [{x, y, z} | _] =
+      for i <- numbers, j <- numbers, k <- numbers, i + j + k == 2020 do
+        {i, j, k}
+      end
+
     x * y * z
   end
 end
