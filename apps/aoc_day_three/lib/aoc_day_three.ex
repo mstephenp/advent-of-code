@@ -11,7 +11,7 @@ defmodule AocDayThree do
 
     [
       take_path(tree_map, {1, 1}),
-      take_path(tree_map, {1 ,3}),
+      take_path(tree_map, {1, 3}),
       take_path(tree_map, {1, 5}),
       take_path(tree_map, {1, 7}),
       take_path(tree_map, {2, 1})
