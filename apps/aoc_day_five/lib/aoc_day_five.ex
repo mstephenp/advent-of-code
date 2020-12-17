@@ -19,7 +19,7 @@ defmodule AocDayFive do
 
   def find_my_seat(seats) do
     Enum.chunk_every(seats, 2, 1, :discard)
-    |> Enum.filter(fn [a,b] -> b - a == 2 end)
+    |> Enum.filter(fn [a, b] -> b - a == 2 end)
   end
 
   def seat_number(boarding_pass) do
